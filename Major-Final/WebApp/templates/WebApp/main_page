@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load staticfiles %}
+
+    <meta charset="UTF-8">
+    <title>Textalytics</title>
+
+
+    <link rel="stylesheet" href="{% static 'css/WebApp.css' %}">
+
+    <link href="/static/material/fonts/material-design-icons/material-icons.css" rel="stylesheet">
+
+   <link href="/static/material/css/materialize.css" rel="stylesheet">
+   <link href="/static/material/css/materialize.forms.css" rel="stylesheet">
+   <link href="/static/material/css/jquery.datetimepicker.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script> src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+
+</head>
+<body>
+   <div style = "left:100px;">
+   </div>
+
+   <div style="position:absolute; left:900px; top:20px;">
+
+    <form>
+    <button type="submit" name="_submit" class="btn btn-primary btn-lg" formaction="http://127.0.0.1:8000/signup">Sign Up</button>
+    <button type="submit" name="_submit" class="btn btn-primary btn-lg" formaction="http://127.0.0.1:8000/login">Login</button>
+    </form>
+
+   </div>
+
+    <form class="form-search" method="post" id="search_" action="">
+        {% csrf_token %}
+    <div id = "dialog" class="input-append" style="position:absolute; left:400px; top:250px;">
+        <input type="text" class="input-medium search-query" name="search_query" placeholder="Search" value="">
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+        <p><b>Text</b> : {{result.text}}</p>
+        <p><b>Confidence</b> : {{result.confidence}}</p>
+        <p><b>Sentiment</b> : {{result.sentiment_value}}</p>
+    </div>
+    </form>
+
+</body>
+</html>

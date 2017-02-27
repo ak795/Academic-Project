@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+
+    <meta charset="UTF-8">
+
+    <title>Text Analytics</title>
+<link rel="stylesheet" href="{% static 'css/WebApp.css' %}">
+
+    <link href="/static/material/fonts/material-design-icons/material-icons.css" rel="stylesheet">
+
+   <link href="/static/material/css/materialize.css" rel="stylesheet">
+   <link href="/static/material/css/materialize.forms.css" rel="stylesheet">
+   <link href="/static/material/css/jquery.datetimepicker.css" rel="stylesheet">
+
+</head>
+<body class="valign-wrapper2">
+
+      <div class="container expand-on-small-only">
+
+<div class="row valign change-form">
+    <div class="col s12 m8 offset-m2 l8 offset-l2">
+        <div class="card">
+
+                <div class="card-content">
+                    <span class="card-title grey-text text-darken-2">Registration form</span>
+                    <input type='hidden' name='csrfmiddlewaretoken' value='efqMWtH1sCX2v8W2GhmlYE3n5GUTMwnX' />
+
+    {% load material_form %}
+  <form method="POST" class="viewform">{% csrf_token %}
+    {% form  %}
+        {% part form.username prefix %}<i class="material-icons prefix">account_box</i>{% endpart %}
+        {% part form.email prefix %}<i class="material-icons prefix">email</i>{% endpart %}
+        {% part form.password prefix %}<i class="material-icons prefix">lock_open</i>{% endpart %}
+    {% endform %}
+    <button type="submit" name="_submit" class="btn btn-primary btn-lg">Submit</button>
+</form>
+
+                    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+                    <script src="/static/material/js/jquery.datetimepicker.js"></script>
+                    <script src="/static/material/js/jquery.formset.js"></script>
+                    <script src="/static/material/js/materialize.js"></script>
+                    <script src="/static/material/js/materialize.forms.js"></script>
+</body>
+</html>
